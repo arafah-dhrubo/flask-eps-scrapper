@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{%block css%}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+{% endblock %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="d-flex justify-content-between bg-light px-5 py-3 mb-5">
+        <a class="btn" href="{{url_for('index')}}">< Back</a>
+        <h4>EPS Data</h4>
+        <a href="{{ url_for('eps', trade_id=trade_id) }}" class="btn btn-dark btn-small">
+            Refresh
+        </a>
+    </div>
+    <table class="table table-striped" id="eps" style="width:100%">
+        <thead>
+        <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Date</th>
+            <th scope="col">EPS</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for news in news_list %}
+        <tr class="text-center">
+            <th scope="row">{{loop.index}}</th>
+            <td>{{ news.year }}-{{news.month}}</td>
+            <td>{{news.eps}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{%block js%}
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#eps').DataTable();
+    });
+</script>
+{% endblock %}
