@@ -1,6 +1,6 @@
 import re
 import time
-
+from termcolor import cprint
 from app.models import Trade
 from app.trade_app.patterns import pattern
 from app.trade_app.soup import get_news, get_trade
@@ -8,12 +8,15 @@ from app.trade_app.utils import add_trade, add_news
 
 is_importing = False
 
+
 def import_trades():
     trade_list = get_trade()
     for trade_code in trade_list:
         add_trade(trade_code)
         import_eps(trade_code)
-        time.sleep(0.25)
+        cprint("Importing EPS For "+trade_code, 'green')
+        time.sleep(0.05)
+        print('Done ✅ ')
 
 
 def import_eps(trade_code):

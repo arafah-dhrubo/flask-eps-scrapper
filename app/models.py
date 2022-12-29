@@ -11,7 +11,7 @@ class Trade(db.Model):
 
 class News(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    trade_id = db.Column(db.Integer, db.ForeignKey('trade_app.id'))
+    trade_id = db.Column(db.Integer, db.ForeignKey('trade.id'))
     year = db.Column(db.String(10))
     month = db.Column(db.String(10))
     eps = db.Column(db.String(10))
