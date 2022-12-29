@@ -1,11 +1,8 @@
 from flask import render_template, redirect, url_for, request
-from flask.json import dump
 
 from app import app
-from app.trade.importer import import_trades
-from app.trade.soup import *
-from app.trade.utils import *
-from app.trade.helper import *
+from app.trade_app.importer import import_trades
+from app.trade_app.utils import *
 
 @app.route('/import-data')
 def import_data():

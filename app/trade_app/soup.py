@@ -1,9 +1,5 @@
-import time
-
 from bs4 import BeautifulSoup
 import requests
-
-from app.trade.utils import add_trade
 
 
 def get_name(trade_code):

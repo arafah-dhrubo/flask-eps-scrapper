@@ -2,9 +2,9 @@ import re
 import time
 
 from app.models import Trade
-from app.trade.patterns import pattern
-from app.trade.soup import get_news, get_trade
-from app.trade.utils import add_trade, add_news
+from app.trade_app.patterns import pattern
+from app.trade_app.soup import get_news, get_trade
+from app.trade_app.utils import add_trade, add_news
 
 is_importing = False
 

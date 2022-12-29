@@ -1,6 +1,6 @@
 from app import db
 from app.models import News, Trade
-from app.trade.helper import *
+from app.trade_app.helper import *
 
 
 def add_news(data, trade_id):

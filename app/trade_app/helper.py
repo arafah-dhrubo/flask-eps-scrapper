@@ -1,5 +1,5 @@
 import re
-from app.trade.patterns import *
+from app.trade_app.patterns import *
 
 
 def year_checker(eps_data):
