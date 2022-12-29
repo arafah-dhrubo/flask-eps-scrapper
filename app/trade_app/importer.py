@@ -6,17 +6,24 @@ from app.trade_app.patterns import pattern
 from app.trade_app.soup import get_news, get_trade
 from app.trade_app.utils import add_trade, add_news
 
-is_importing = False
+
+def convert(seconds):
+    return time.strftime("%M:%S", time.gmtime(n))
 
 
 def import_trades():
+    seconds = 0
+    completed = 0
+    sleep_time = 0.05
     trade_list = get_trade()
     for trade_code in trade_list:
         add_trade(trade_code)
         import_eps(trade_code)
-        cprint("Importing EPS For "+trade_code, 'green')
-        time.sleep(0.05)
-        print('Done ✅ ')
+        print("Importing EPS For " + trade_code + ' Done ✅ ')
+        time.sleep(sleep_time)
+        seconds += sleep_time
+        completed += 1
+        cprint("Completed {} Trades in {} minutes".format(completed, round(seconds)), 'green')
 
 
 def import_eps(trade_code):
