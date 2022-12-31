@@ -8,7 +8,7 @@ from app.trade_app.utils import add_trade, add_news
 
 
 def convert(seconds):
-    return time.strftime("%M:%S", time.gmtime(n))
+    return time.strftime("%M:%S", time.gmtime(seconds))
 
 
 def import_trades():
